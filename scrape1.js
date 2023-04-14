@@ -146,7 +146,7 @@ const chunkSection = async (section) => {
 
   for (let i = 0; i < links.length; i++) {
     const link = `${BASE_URL}${links[i]}`;
-    if (!link.endsWith('.pdf')) {
+    if (!link.endsWith('.pdf') && !link.includes('LEG')) {
       const section = await getSection(link);
       const chunkedSection = await chunkSection(section);
       sections.push(chunkedSection);
