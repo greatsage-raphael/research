@@ -61,9 +61,11 @@ const getSection = async (link) => {
   const section = {
     act_title: actTitle,
     PDFLink: pdfLink,
+    section_url: link,
     section_num: 0, // handled in embed.ts
     content: sectionText,
     content_length: sectionText.length,
+    content_tokens: encode(sectionText).length,
     chunks: []
   };
 
@@ -164,5 +166,5 @@ const chunkSection = async (section) => {
     sections
   };
 
-  fs.writeFileSync("kenya.json", JSON.stringify(book, null, 2));
+  fs.writeFileSync("kenyalaw.json", JSON.stringify(book, null, 2));
 })();
